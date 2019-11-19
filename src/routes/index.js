@@ -10,7 +10,7 @@ export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
-      <Route path="/details" component={Details} />
+      <Route path="/movie/:id" component={Details} />
     </Switch>
   );
 }

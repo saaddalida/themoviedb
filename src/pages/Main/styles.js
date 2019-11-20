@@ -27,3 +27,19 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const LoadingContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 70px auto;
+
+  span {
+    margin-top: 25px;
+    font-size: 50px;
+    font-family: 'Abel', sans-serif;
+    color: #116193;
+  }
+`;

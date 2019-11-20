@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { MdMovieFilter } from 'react-icons/md';
 
-import { searchMovieRequest } from '../../store/modules/movie/actions';
-import { Container } from './styles';
+import { searchMoviesRequest } from '../../store/modules/movies/actions';
+import { Container, LoadingContent } from './styles';
 
 export default function Main() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.movies.loading);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
     async function loadMovies() {
       if (query !== '') {
-        dispatch(searchMovieRequest(query));
+        dispatch(searchMoviesRequest(query));
       }
     }
 
@@ -32,6 +34,13 @@ export default function Main() {
         placeholder="Busque um filme por nome, ano ou gênero..."
         onKeyPress={handlePress}
       />
+
+      {loading && (
+        <LoadingContent>
+          <MdMovieFilter size={50} color="#116193" />
+          <span>Carregando...</span>
+        </LoadingContent>
+      )}
     </Container>
   );
 }

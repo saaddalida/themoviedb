@@ -15,7 +15,7 @@ export const Container = styled.div`
     flex-grow: 1;
     background: #ebebeb;
     color: #84aac2;
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Abel', sans-serif;
 
     border: none;
